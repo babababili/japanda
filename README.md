@@ -1,11 +1,12 @@
 # Japanda
-Japanda provides an object oriented wrapper to canvas and catalog api
+Japanda provides an object oriented wrapper and functional wrapper around canvas api
+Disclaimer: For testing purposes only
 
-v.1: Feature set
-i) Create canvas learner user and admin user
-ii) Create canvas course
-iii) Create canvas course sections
-iv) Create canvas module with assignment
+v0.1.3: Features
+a) Create canvas learner user and admin user
+b) Create canvas course
+c) Add sections to canvas
+d) Add module(s) with assignment(s)
 
 ## Installation
 
@@ -53,6 +54,5 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 
 
 ## License
-
+For testing purposes only
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-

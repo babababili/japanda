@@ -6,8 +6,8 @@ require 'japanda/version'
 Gem::Specification.new do |spec|
   spec.name          = 'japanda'
   spec.version       = Japanda::VERSION
-  spec.authors       = ['Santosh Natarajan']
-  spec.email         = ['snatarajan@instructure.com']
+  spec.authors       = ['Santosh Natarajan', 'Robert Lamb']
+  spec.email         = ['snatarajan@instructure.com', 'rlamb@instructure.com']
 
   spec.summary       = %q{Library to create custom course.}
   spec.description   = %q{Library to create custom course. wip.}
@@ -30,6 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler', '>= 1.0.0'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'hashie'
   spec.add_development_dependency 'dotenv'
   spec.add_dependency 'rest-client'
 end

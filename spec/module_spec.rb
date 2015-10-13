@@ -1,29 +1,41 @@
 require 'spec_helper'
 
 describe 'course module' do
-  context 'with no config' do
+  context 'with no hash' do
     let(:canvas_course) { CanvasFactory::Course.new }
-    let(:course_module) { CanvasFactory::Module.new(canvas_course.course_id) }
     it 'should be created' do
-      expect(course_module.course_id).to eql canvas_course.course_id
-      expect(course_module.published).to be true
+      canvas_course.add_module
+      expect(canvas_course.modules[0].course_id).to eql canvas_course.course_id
     end
   end
 
-  context 'with config' do
+  context 'with hash merge' do
     let(:canvas_course) { CanvasFactory::Course.new }
     let(:module_name) { 'Calculus' }
+    let(:opts) { { module: { name:module_name,require_sequential_progress: false } } }
     it 'should be created' do
-      module_config = CanvasFactory::ModuleConfig.new(end_at: Time.now)
-      module_config.name = module_name
-      module_config.require_sequential_progress = true
-      course_modules = []
-      course_modules << CanvasFactory::Module.new(canvas_course.course_id, module_config)
-      expect(course_modules.size).to eq 1
-      course_modules.each do |m|
-        expect(m.require_sequential_progress).to be module_config.require_sequential_progress
-        expect(m.name).to eql module_name
-      end
+      canvas_course.add_module opts
+      expect(canvas_course.modules.size).to eq 1
+      expect(canvas_course.modules[0].course_id).to eql canvas_course.course_id
+      expect(canvas_course.modules[0].name).to eql module_name
+    end
+  end
+
+  context 'with hash' do
+    let(:canvas_course) { CanvasFactory::Course.new }
+    let(:module_name) { 'Calculus' }
+    let(:opts) { {
+      module: {
+        name: module_name,
+        unlock_at: DateTime.now.iso8601,
+        require_sequential_progress: false
+      }
+    } }
+    it 'should be created' do
+      canvas_course.add_module opts, false
+      expect(canvas_course.modules.size).to eq 1
+      expect(canvas_course.modules[0].course_id).to eql canvas_course.course_id
+      expect(canvas_course.modules[0].name).to eql module_name
     end
   end
 end

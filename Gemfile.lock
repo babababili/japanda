@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    japanda (0.1.3)
+    japanda (0.1.4)
       rest-client
 
 GEM
@@ -11,6 +11,7 @@ GEM
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.0.2)
+    hashie (2.0.5)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     mime-types (2.6.2)
@@ -43,9 +44,10 @@ PLATFORMS
 DEPENDENCIES
   bundler (>= 1.0.0)
   dotenv
+  hashie
   japanda!
   rake (~> 10.0)
   rspec
 
 BUNDLED WITH
-   1.10.5
+   1.10.6

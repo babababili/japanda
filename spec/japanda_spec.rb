@@ -6,6 +6,6 @@ describe Japanda do
   end
 
   it 'has a version number' do
-    expect(Japanda::VERSION).to eql '0.1.3'
+    expect(Japanda::VERSION).to eql '0.1.4'
   end
 end
